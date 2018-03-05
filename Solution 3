@@ -1,0 +1,20 @@
+## Answer 3 http://www.pythonchallenge.com/pc/def/equality.html
+fin = open(r'C:\Users\USERNAME\Documents\Python Scripts\Python Challenge\Three.txt').read().replace("\n",'') # Opens all text on a single line. txt file is source file from Python Challenge
+
+alpha = 'abcdefghijklmnopqrstuvwxyz'
+alpha_caps = alpha.upper()
+
+def bodyguard (prez):
+    big_boys =  [prez[1], prez[2], prez[3], prez[5], prez[6], prez[7]]
+    small_boys = [prez[0], prez[4], prez[8]]
+
+    if all(word in alpha_caps for word in big_boys) and all(word2 in alpha for word2 in small_boys):
+        print (prez[4])
+
+def finder (phrase):
+    result = ""
+    for x in range(len(phrase)-8):
+        if phrase[x] in alpha:
+            bodyguard(phrase[x:x+9])
+
+finder(fin)
