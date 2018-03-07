@@ -1,0 +1,19 @@
+## Problem 4 http://www.pythonchallenge.com/pc/def/linkedlist.php
+
+import urllib.request
+import re
+
+# number = '12345' # Initial Number
+# number = '8022' # Is the last number 8022 = 16044/2
+# number = '82682' # Trickery
+# number = 66831 # Last number
+
+while number.isdigit():
+
+    url = urllib.request.urlopen("http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing="+number).read()
+    print(url)
+    target_string = str(url).rsplit('nothing is', 1)[1]
+
+    # number = re.findall(r'\d+',str(url))[0] # Works until number 82682
+    number = re.findall(r'\d+',target_string)[0] # Works until the end
+    print (number)
