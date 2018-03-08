@@ -1,1 +1,8 @@
 ## Problem 5 http://www.pythonchallenge.com/pc/def/peak.html
+
+import urllib.request, re, pickle
+
+url = pickle.load(urllib.request.urlopen("http://www.pythonchallenge.com/pc/def/banner.p"))
+
+for line in url:
+    print (''.join(elmt[0] * elmt [1] for elmt in line))
