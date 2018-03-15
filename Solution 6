@@ -1,1 +1,29 @@
 ## Problem 6 http://www.pythonchallenge.com/pc/def/channel.html
+## ZIP downloaded from http://www.pythonchallenge.com/pc/def/channel.zip
+
+import zipfile, re
+
+with zipfile.ZipFile(r"channel.zip") as zip1:
+
+    num = "90052" # Initial Number to start
+    collect_comments = []
+
+    try:
+        print ("num:",num)
+        while num.isdigit():
+
+            with zip1.open(num+".txt") as current_file:
+                file_contents = (current_file.read().decode("utf-8"))
+                target_splitter = file_contents.split("Next nothing is ")[1] #Splits the at "Next nothing is"
+                num = re.findall(r"\d+",target_splitter)[0] # Returns next num
+                print(num)
+                collect_comments.append(zip1.getinfo(num + ".txt").comment.decode("utf-8")) # Collects comments
+
+    except (IndexError):
+        pass # No error when the last file is reached
+
+    finally:
+        print ("Endo")
+
+    print (collect_comments)
+    print("".join(collect_comments))
