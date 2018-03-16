@@ -1,1 +1,14 @@
 ## Problem 7 http://www.pythonchallenge.com/pc/def/oxygen.html
+
+import PIL, urllib.request
+from PIL import Image
+
+urlimg = urllib.request.urlopen("http://www.pythonchallenge.com/pc/def/oxygen.png")
+im = Image.open(urlimg)
+print (im)
+print(im.format, im.size, im.mode)
+
+pix = im.load()
+print (pix)
+row = [im.getpixel((x, im.height / 2)) for x in range(im.width)]
+print(row)
