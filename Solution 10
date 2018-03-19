@@ -1,1 +1,26 @@
 ## Problem 10 http://www.pythonchallenge.com/pc/return/bull.html
+# len(a[30]) = ?
+
+# 1,11,21,1211,11121
+
+# If a number is singular n, new number = 1 + n
+# If number is consecutive n, append consectuve number * value, ie n(value) not this is not the size but the number of times n returns.
+
+#So the above boils down to how many times the digit occurs conssecutively
+
+number = "112"
+for i in range(29): #How many times the program should run n-1
+    new_number=""
+    for j in range(len(number)): #Returns the next number in the lsit
+        digit = number[j]
+        if j == 0:
+            print(number[j],j)
+        elif number[j] != number[j-1]:
+            new_number +=
+        elif number[j] == number[j-1]:
+            print(number[j],j)
+
+        else:
+            print ("Gotch ya",j)
+
+    print ()
