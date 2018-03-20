@@ -8,19 +8,11 @@
 
 #So the above boils down to how many times the digit occurs conssecutively
 
-number = "112"
-for i in range(29): #How many times the program should run n-1
-    new_number=""
-    for j in range(len(number)): #Returns the next number in the lsit
-        digit = number[j]
-        if j == 0:
-            print(number[j],j)
-        elif number[j] != number[j-1]:
-            new_number +=
-        elif number[j] == number[j-1]:
-            print(number[j],j)
+import re
 
-        else:
-            print ("Gotch ya",j)
+number = "1"
+for n in range(30):
+    number = "".join([str(len(i+j))+i for i,j in re.findall(r"(\d)(\1*)", number)])
 
-    print ()
+print(number)
+print(len(number))
