@@ -1,3 +1,25 @@
 ## Problem 11 http://www.pythonchallenge.com/pc/return/5808.html
 # user: huge
 # pw: file
+
+from PIL import Image,ImageDraw
+img = Image.open("cave.jpg")
+new_image_1 = Image.new("RGB",img.size,(0,0,0))
+new_image_2 = Image.new("RGB",img.size,(0,0,0))
+d1 = ImageDraw.Draw(new_image_1)
+d2 = ImageDraw.Draw(new_image_2)
+
+width, height = img.size
+
+for w in range(width):
+    for h in range(height):
+        pix = img.getpixel((w, h))
+        if (w + h) % 2 == 0:
+            d1.point((w,h), fill=pix )
+        else:
+            d2.point((w,h), fill=pix)
+
+new_image_1.show()
+new_image_2.show()
+
+##result image as evil
