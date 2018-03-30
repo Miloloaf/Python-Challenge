@@ -1,0 +1,9 @@
+## http://www.pythonchallenge.com/pc/return/evil.html
+## Fairly difficult problem. Needed hints to help solve this one.
+
+data =  open(r"I:\Python Scripts\Python Challenge\evil2.gfx","rb").read()
+
+for i in range(5):
+    open("%d.jpg" %i, "wb").write(data[i::5])
+    
+## Word: disproportional
